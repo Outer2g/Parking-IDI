@@ -14,10 +14,12 @@ public class Parking {
     private Vector<VehicleParking> vehicleParkings;
     private int totalSpots;
     private int spotsTaken;
+
     public Parking(int TOTAL_SPOTS){
         this.totalSpots = TOTAL_SPOTS;
         this.spotsTaken = 0;
         this.vehicleParkings = new Vector<VehicleParking>(totalSpots);
+        for(int i =0; i<totalSpots;++i) vehicleParkings.add(null);
     }
     //0<Spot<totalSpots
     public void entersVehicle(String numberPlate, Calendar c, int spot) throws Exception {

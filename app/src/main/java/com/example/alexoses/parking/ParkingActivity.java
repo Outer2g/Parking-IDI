@@ -70,19 +70,15 @@ public class ParkingActivity extends ActionBarActivity {
             Button add = (Button) rootView.findViewById(R.id.addButton);
             text = (TextView) rootView.findViewById(R.id.auxText);
             parking = new Parking(12);
-            text.setText(parking.getFreeSpots().size());
             add.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Calendar c = new GregorianCalendar(2015,3,25);
                     try {
-                        Log.e("yes","YES ");
-                        parking.entersVehicle("999",c,3);
-                        Log.e("yes","YES ");
-                        text.setText(parking.getFreeSpots().size());
-
+                        parking.entersVehicle("999",c,2);
+                        text.setText("Spots: "+parking.getFreeSpots().size());
                     } catch (Exception e) {
-                        e.getMessage();
+                        Log.e("ParkingActivity",e.getMessage());
                     }
                 }
             });
