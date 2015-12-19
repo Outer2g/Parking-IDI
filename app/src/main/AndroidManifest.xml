@@ -17,7 +17,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Parking"
+            android:name=".ParkingActivity"
             android:label="@string/title_activity_parking"
             android:parentActivityName=".MainActivity" >
             <meta-data

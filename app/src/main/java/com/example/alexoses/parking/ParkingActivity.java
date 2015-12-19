@@ -1,18 +1,24 @@
 package com.example.alexoses.parking;
 
-import android.support.v7.app.ActionBarActivity;
-import android.support.v7.app.ActionBar;
-import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.os.Build;
+import android.widget.Button;
+import android.widget.TextView;
+
+import com.example.alexoses.parking.domain.Parking;
+
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 
-public class Parking extends ActionBarActivity {
+public class ParkingActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,11 +61,31 @@ public class Parking extends ActionBarActivity {
 
         public PlaceholderFragment() {
         }
-
+        private Parking parking;
+        private TextView text;
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_parking, container, false);
+            final View rootView = inflater.inflate(R.layout.fragment_parking, container, false);
+            Button add = (Button) rootView.findViewById(R.id.addButton);
+            text = (TextView) rootView.findViewById(R.id.auxText);
+            parking = new Parking(12);
+            text.setText(parking.getFreeSpots().size());
+            add.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Calendar c = new GregorianCalendar(2015,3,25);
+                    try {
+                        Log.e("yes","YES ");
+                        parking.entersVehicle("999",c,3);
+                        Log.e("yes","YES ");
+                        text.setText(parking.getFreeSpots().size());
+
+                    } catch (Exception e) {
+                        e.getMessage();
+                    }
+                }
+            });
             return rootView;
         }
     }

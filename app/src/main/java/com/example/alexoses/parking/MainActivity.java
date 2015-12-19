@@ -1,18 +1,34 @@
 package com.example.alexoses.parking;
 
-import android.support.v7.app.ActionBarActivity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 
 public class MainActivity extends ActionBarActivity {
+
+    private void startParking(){
+        Intent s = new Intent(this,ParkingActivity.class);
+        startActivity(s);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Button parking = (Button) findViewById(R.id.parkingButton);
+        parking.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                startParking();
+            }
+        });
     }
+
 
 
     @Override

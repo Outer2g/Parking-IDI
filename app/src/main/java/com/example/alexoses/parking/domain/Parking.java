@@ -34,12 +34,13 @@ public class Parking {
         //TODO create ticket save ticket bla bla bla
     }
     public Vector<Integer> getFreeSpots(){
-        Vector<Integer> r = new Vector<>();
+        Vector<Integer> r = new Vector<Integer>();
         for (int i=0; i<totalSpots;++i){
             if (vehicleParkings.get(i) == null) r.add(i);
         }
         return r;
     }
+    public int getTotalSpots(){ return totalSpots;}
     public Vector<VehicleParking> getSpots(){
         return vehicleParkings;
     }
