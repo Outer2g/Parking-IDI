@@ -76,7 +76,7 @@ public class ParkingActivity extends ActionBarActivity {
                     Calendar c = new GregorianCalendar(2015,3,25);
                     try {
                         parking.entersVehicle("999",c,2);
-                        text.setText("Spots: "+parking.getFreeSpots().size());
+                        text.setText("Spots: "+parking.getFreeSpots().size()+" ");
                     } catch (Exception e) {
                         Log.e("ParkingActivity",e.getMessage());
                     }

@@ -34,6 +34,7 @@ public class Parking {
     }
     public void leavesVehicle(int spot,Calendar c){
         //TODO create ticket save ticket bla bla bla
+        vehicleParkings.set(spot,null);
     }
     public Vector<Integer> getFreeSpots(){
         Vector<Integer> r = new Vector<Integer>();
