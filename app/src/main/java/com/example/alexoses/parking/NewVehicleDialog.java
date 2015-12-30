@@ -6,7 +6,6 @@ import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
@@ -35,7 +34,6 @@ public class NewVehicleDialog extends android.support.v4.app.DialogFragment {
                 String s = String.valueOf(field.getText());
                 intent.putExtra("mat",s);
                 intent.putExtra("spot",spot);
-                Log.e("PARKINGDIA", String.valueOf(spot) + " " + intent.getExtras().getString("mat"));
                 getTargetFragment().onActivityResult(getTargetRequestCode(), Activity.RESULT_OK,intent);
                 dismiss();
             }
