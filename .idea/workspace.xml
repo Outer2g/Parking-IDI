@@ -48,34 +48,15 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Parking.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/alexoses/parking/domain/Parking.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="595" max-vertical-offset="969">
-              <caret line="35" column="52" selection-start-line="35" selection-start-column="52" selection-end-line="35" selection-end-column="52" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ParkingActivity.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="ParkingActivity.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/alexoses/parking/ParkingActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="790" max-vertical-offset="1615">
-              <caret line="114" column="17" selection-start-line="114" selection-start-column="17" selection-end-line="114" selection-end-column="17" />
+            <state vertical-scroll-proportion="0.43256998" vertical-offset="510" max-vertical-offset="2176">
+              <caret line="57" column="64" selection-start-line="57" selection-start-column="64" selection-end-line="57" selection-end-column="64" />
               <folding>
-                <element signature="method#onActivityResult#0;class#PlaceholderFragment#0;class#ParkingActivity#0" expanded="false" />
+                <element signature="e#4431#5125#0" expanded="true" />
+                <element signature="e#5106#5107#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MainActivity.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/alexoses/parking/MainActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="153" max-vertical-offset="1037">
-              <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -83,7 +64,7 @@
       <file leaf-file-name="fragment_parking.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_parking.xml">
           <provider editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="170" max-vertical-offset="2720">
+            <state vertical-scroll-proportion="0.0" vertical-offset="2354" max-vertical-offset="2720">
               <caret line="24" column="39" selection-start-line="24" selection-start-column="39" selection-end-line="25" selection-end-column="12" />
               <folding />
             </state>
@@ -96,7 +77,7 @@
       <file leaf-file-name="fragment_parking.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-land/fragment_parking.xml">
           <provider editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="2363">
+            <state vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="2363">
               <caret line="15" column="36" selection-start-line="15" selection-start-column="36" selection-end-line="15" selection-end-column="36" />
               <folding />
             </state>
@@ -106,21 +87,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MyDialog.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/alexoses/parking/MyDialog.java">
+      <file leaf-file-name="NewVehicleDialog.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/alexoses/parking/NewVehicleDialog.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="612" max-vertical-offset="901">
-              <caret line="36" column="70" selection-start-line="36" selection-start-column="70" selection-end-line="36" selection-end-column="85" />
-              <folding />
+            <state vertical-scroll-proportion="0.0" vertical-offset="187" max-vertical-offset="748">
+              <caret line="35" column="39" selection-start-line="35" selection-start-column="39" selection-end-line="35" selection-end-column="39" />
+              <folding>
+                <element signature="e#1136#1719#0" expanded="true" />
+                <element signature="e#1708#1709#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="placa_dialog.xml" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="placa_dialog.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/placa_dialog.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.49475524" vertical-offset="278" max-vertical-offset="850">
-              <caret line="33" column="42" selection-start-line="33" selection-start-column="42" selection-end-line="33" selection-end-column="42" />
+            <state vertical-scroll-proportion="-6.296296" vertical-offset="153" max-vertical-offset="629">
+              <caret line="19" column="53" selection-start-line="19" selection-start-column="53" selection-end-line="19" selection-end-column="53" />
               <folding />
             </state>
           </provider>
@@ -821,13 +805,18 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_parking_h.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_parking_v.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout-land/fragment_parking_h.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/alexoses/parking/MyDialog.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_parking_test.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout-land/fragment_parking_test.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout-land/fragment_parking.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_parking.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/alexoses/parking/ParkingActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/alexoses/parking/MyDialog.java" />
+        <option value="$PROJECT_DIR$/app/build/generated/source/r/debug/com/example/alexoses/parking/entersVehicleDialog.java" />
+        <option value="$PROJECT_DIR$/app/build/generated/source/r/debug/com/example/alexoses/parking/EntersVehicleDialog.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/placa_dialog.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/placa_dialog_new.xml" />
+        <option value="$PROJECT_DIR$/app/build/generated/source/r/debug/com/example/alexoses/parking/NewCarDialog.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_parking.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout-land/fragment_parking.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/alexoses/parking/NewVehicleDialog.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/alexoses/parking/ParkingActivity.java" />
       </list>
     </option>
   </component>
@@ -863,6 +852,10 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane />
+      </pane>
       <pane id="PackagesPane">
         <subPane>
           <PATH>
@@ -917,27 +910,8 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Parking" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="com.example.alexoses.parking" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="domain" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="AndroidView">
         <subPane>
           <PATH>
@@ -1030,9 +1004,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="ProjectPane">
-        <subPane />
-      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1052,7 +1023,7 @@
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
-    <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/main/java/com/example/alexoses/parking" />
     <property name="ExportApk.ApkPath" value="C:\Users\Juan\Google Drive\temp" />
     <property name="ExportApk.Flavors" value="" />
     <property name="ExportApk.BuildType" value="release" />
@@ -1267,7 +1238,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1320" height="784" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32854864" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1282,11 +1253,12 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32695374" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32854864" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32854864" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32854864" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Memory Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32854864" sideWeight="0.62460315" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32854864" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1296,7 +1268,6 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1351,35 +1322,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/placa_dialog.xml">
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="68" max-vertical-offset="850">
-          <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/alexoses/parking/domain/Parking.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="595" max-vertical-offset="969">
-          <caret line="35" column="52" selection-start-line="35" selection-start-column="52" selection-end-line="35" selection-end-column="52" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/alexoses/parking/ParkingActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1496">
-          <caret line="73" column="33" selection-start-line="73" selection-start-column="33" selection-end-line="77" selection-end-column="13" />
-          <folding>
-            <element signature="method#onActivityResult#0;class#PlaceholderFragment#0;class#ParkingActivity#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/alexoses/parking/MyDialog.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="272" max-vertical-offset="646">
@@ -1469,7 +1411,8 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="935" max-vertical-offset="1224">
           <caret line="55" column="59" selection-start-line="55" selection-start-column="59" selection-end-line="55" selection-end-column="59" />
           <folding>
-            <element signature="method#onActivityResult#0;class#PlaceholderFragment#0;class#ParkingActivity#0" expanded="false" />
+            <element signature="e#4431#5125#0" expanded="true" />
+            <element signature="e#5106#5107#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1525,7 +1468,8 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="491" max-vertical-offset="1020">
           <caret line="58" column="25" selection-start-line="58" selection-start-column="25" selection-end-line="58" selection-end-column="25" />
           <folding>
-            <element signature="method#onActivityResult#0;class#PlaceholderFragment#0;class#ParkingActivity#0" expanded="false" />
+            <element signature="e#4431#5125#0" expanded="true" />
+            <element signature="e#5106#5107#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1554,7 +1498,8 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="782">
           <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
           <folding>
-            <element signature="method#onActivityResult#0;class#PlaceholderFragment#0;class#ParkingActivity#0" expanded="false" />
+            <element signature="e#4431#5125#0" expanded="true" />
+            <element signature="e#5106#5107#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1583,7 +1528,8 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="1139" max-vertical-offset="1377">
           <caret line="67" column="29" selection-start-line="67" selection-start-column="29" selection-end-line="67" selection-end-column="29" />
           <folding>
-            <element signature="method#onActivityResult#0;class#PlaceholderFragment#0;class#ParkingActivity#0" expanded="false" />
+            <element signature="e#4431#5125#0" expanded="true" />
+            <element signature="e#5106#5107#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1601,7 +1547,8 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="986" max-vertical-offset="1343">
           <caret line="73" column="25" selection-start-line="73" selection-start-column="25" selection-end-line="73" selection-end-column="25" />
           <folding>
-            <element signature="method#onActivityResult#0;class#PlaceholderFragment#0;class#ParkingActivity#0" expanded="false" />
+            <element signature="e#4431#5125#0" expanded="true" />
+            <element signature="e#5106#5107#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1619,7 +1566,8 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="1071" max-vertical-offset="1343">
           <caret line="78" column="79" selection-start-line="78" selection-start-column="79" selection-end-line="78" selection-end-column="79" />
           <folding>
-            <element signature="method#onActivityResult#0;class#PlaceholderFragment#0;class#ParkingActivity#0" expanded="false" />
+            <element signature="e#4431#5125#0" expanded="true" />
+            <element signature="e#5106#5107#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1644,7 +1592,8 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="1343" max-vertical-offset="1598">
           <caret line="79" column="43" selection-start-line="79" selection-start-column="43" selection-end-line="79" selection-end-column="43" />
           <folding>
-            <element signature="method#onActivityResult#0;class#PlaceholderFragment#0;class#ParkingActivity#0" expanded="false" />
+            <element signature="e#4431#5125#0" expanded="true" />
+            <element signature="e#5106#5107#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1669,7 +1618,8 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="1343" max-vertical-offset="1598">
           <caret line="79" column="43" selection-start-line="79" selection-start-column="43" selection-end-line="79" selection-end-column="43" />
           <folding>
-            <element signature="method#onActivityResult#0;class#PlaceholderFragment#0;class#ParkingActivity#0" expanded="false" />
+            <element signature="e#4431#5125#0" expanded="true" />
+            <element signature="e#5106#5107#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1687,7 +1637,8 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="1309" max-vertical-offset="1666">
           <caret line="77" column="25" selection-start-line="77" selection-start-column="25" selection-end-line="77" selection-end-column="25" />
           <folding>
-            <element signature="method#onActivityResult#0;class#PlaceholderFragment#0;class#ParkingActivity#0" expanded="false" />
+            <element signature="e#4431#5125#0" expanded="true" />
+            <element signature="e#5106#5107#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1745,14 +1696,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/alexoses/parking/domain/Parking.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="304" max-vertical-offset="867">
-          <caret line="35" column="52" selection-start-line="35" selection-start-column="52" selection-end-line="35" selection-end-column="52" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-land/fragment_parking_test.xml">
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1343">
@@ -1764,14 +1707,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/alexoses/parking/MyDialog.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="153" max-vertical-offset="697">
-          <caret line="36" column="70" selection-start-line="36" selection-start-column="70" selection-end-line="36" selection-end-column="85" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/alexoses/parking/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="64" max-vertical-offset="850">
@@ -1780,20 +1715,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-land/fragment_parking.xml">
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="2363">
-          <caret line="15" column="36" selection-start-line="15" selection-start-column="36" selection-end-line="15" selection-end-column="36" />
+    <entry file="file://$PROJECT_DIR$/app/build/generated/source/r/debug/com/example/alexoses/parking/R.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.1915493" vertical-offset="0" max-vertical-offset="87278">
+          <caret line="9" column="19" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
           <folding />
         </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_parking.xml">
       <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="170" max-vertical-offset="2720">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2354" max-vertical-offset="2720">
           <caret line="24" column="39" selection-start-line="24" selection-start-column="39" selection-end-line="25" selection-end-column="12" />
           <folding />
         </state>
@@ -1802,25 +1734,75 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/alexoses/parking/ParkingActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/placa_dialog_new.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="790" max-vertical-offset="1615">
-          <caret line="114" column="17" selection-start-line="114" selection-start-column="17" selection-end-line="114" selection-end-column="17" />
-          <folding>
-            <element signature="method#onActivityResult#0;class#PlaceholderFragment#0;class#ParkingActivity#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/placa_dialog.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.49475524" vertical-offset="278" max-vertical-offset="850">
-          <caret line="33" column="42" selection-start-line="33" selection-start-column="42" selection-end-line="33" selection-end-column="42" />
+        <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="272">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
       <provider editor-type-id="android-designer">
         <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/alexoses/parking/MyDialog.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="697">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="43" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-land/fragment_parking.xml">
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="2363">
+          <caret line="15" column="36" selection-start-line="15" selection-start-column="36" selection-end-line="15" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/alexoses/parking/domain/Parking.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.30788803" vertical-offset="406" max-vertical-offset="867">
+          <caret line="35" column="52" selection-start-line="35" selection-start-column="52" selection-end-line="35" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/placa_dialog.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.296296" vertical-offset="153" max-vertical-offset="629">
+          <caret line="19" column="53" selection-start-line="19" selection-start-column="53" selection-end-line="19" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/alexoses/parking/NewVehicleDialog.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="187" max-vertical-offset="748">
+          <caret line="35" column="39" selection-start-line="35" selection-start-column="39" selection-end-line="35" selection-end-column="39" />
+          <folding>
+            <element signature="e#1136#1719#0" expanded="true" />
+            <element signature="e#1708#1709#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/alexoses/parking/ParkingActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.43256998" vertical-offset="510" max-vertical-offset="2176">
+          <caret line="57" column="64" selection-start-line="57" selection-start-column="64" selection-end-line="57" selection-end-column="64" />
+          <folding>
+            <element signature="e#4431#5125#0" expanded="true" />
+            <element signature="e#5106#5107#0" expanded="true" />
+          </folding>
+        </state>
       </provider>
     </entry>
   </component>

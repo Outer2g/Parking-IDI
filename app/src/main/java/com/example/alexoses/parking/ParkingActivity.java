@@ -55,10 +55,13 @@ public class ParkingActivity extends ActionBarActivity {
                 case MAT_REQUEST_CODE:
                     if (resultCode == Activity.RESULT_OK){
                         Bundle bundle = data.getExtras();
-                        String matricula = bundle.getString("matriculaNova");
+                        String matricula = bundle.getString("mat");
+                        int spot = bundle.getInt("spot");
+
+                        Log.e("PARKINGNEW", String.valueOf(spot)+" "+matricula);
                         Calendar c = new GregorianCalendar(2015,3,28);
                         try {
-                            parking.entersVehicle(matricula,c,2);
+                            parking.entersVehicle(matricula,c,spot);
                         } catch (Exception e) {
                             Log.e("PARKING",e.getMessage());
                         }
@@ -66,7 +69,23 @@ public class ParkingActivity extends ActionBarActivity {
                     break;
             }
         }
-
+        private void showVehicle(int spot){
+            MyDialog newDialog = new MyDialog();
+            Bundle  args = new Bundle();
+            Log.e("PARKING", String.valueOf(spot)+" "+parking.getSpots().get(spot).getNumberPlate());
+            args.putString("matricula", parking.getSpots().get(spot).getNumberPlate());
+            newDialog.setArguments(args);
+            newDialog.setTargetFragment(mainFragment, MAT_REQUEST_CODE);
+            newDialog.show(getActivity().getSupportFragmentManager(),"Parking");
+        }
+        private void enterVehicle(int spot){
+            NewVehicleDialog newDialog = new NewVehicleDialog();
+            Bundle args = new Bundle();
+            args.putInt("spot",spot);
+            newDialog.setArguments(args);
+            newDialog.setTargetFragment(mainFragment, MAT_REQUEST_CODE);
+            newDialog.show(getActivity().getSupportFragmentManager(),"Parking");
+        }
         private void linkButtons(){
             places = new Vector<Button>(TOTAL_SPOTS);
             places.add((Button) rootView.findViewById(R.id.button1));
@@ -88,23 +107,19 @@ public class ParkingActivity extends ActionBarActivity {
                     @Override
                     public void onClick(View v) {
                         ColorDrawable color = (ColorDrawable) v.getBackground();
-                        if (color.getColor() == Color.RED) v.setBackgroundColor(Color.GREEN);
-                        else v.setBackgroundColor(Color.RED);
-
-
-                        MyDialog newDialog = new MyDialog();
-                        Bundle  args = new Bundle();
-                        try{
-                            args.putString("matricula", parking.getSpots().get(2).getNumberPlate());
+                        int spot = getPlacaCode(v);
+                        switch (color.getColor()){
+                            case Color.RED:
+                                showVehicle(spot);
+                                break;
+                            case Color.GREEN:
+                                enterVehicle(spot);
+                                v.setBackgroundColor(Color.RED);
+                                break;
                         }
-                        catch (Exception e){
-                            args.putString("matricula","introdueixi nova matricula");
-                        }
-                        newDialog.setArguments(args);
-                        newDialog.setTargetFragment(mainFragment, MAT_REQUEST_CODE);
-                        newDialog.show(getActivity().getSupportFragmentManager(),"hi");
                     }
                 });
+
             }
         }
         private int getPlacaCode(View v){
