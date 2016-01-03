@@ -8,30 +8,66 @@ import android.util.Log;
 
 import com.example.alexoses.parking.domain.VehicleParking;
 
-import java.util.GregorianCalendar;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.HashMap;
+
+import static com.example.alexoses.parking.Persistencia.ParkingContract.ParkingEntry;
 
 /**
  * Created by Alex on 02/01/2016.
  */
 public class CtrlBd {
     private ParkingDb io;
-    GregorianCalendar c  = new GregorianCalendar(2015,03,28);
+
     public CtrlBd(Context context){
         io = new ParkingDb(context);
     }
-    public void insertCar (VehicleParking v){
+    // Parking state operations :
+    public void insertCar (VehicleParking v,int spot){
         SQLiteDatabase db = io.getWritableDatabase();
 
         ContentValues values = new ContentValues();
-        values.put(LogContract.ParkingEntry.COLUMN_NAME_CAR_ID,v.getNumberPlate());
-        values.put(LogContract.ParkingEntry.COLUMN_NAME_DATE_IN,"test");
-        long newIDrow;
-        newIDrow = db.insert(LogContract.ParkingEntry.LOG_TABLE_NAME, LogContract.ParkingEntry.COLUMN_NAME_DATE_OUT,values);
+        values.put(ParkingEntry.COLUMN_NAME_SPOT,spot);
+        values.put(ParkingEntry.COLUMN_NAME_CAR_ID,v.getNumberPlate());
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-M-yyyy hh:mm:ss");
+        values.put(ParkingEntry.COLUMN_NAME_DATE_IN,sdf.format(v.getDataEntrada()));
+
+        db.insert(ParkingEntry.PARK_TABLE_NAME, null, values);
     }
+    public HashMap<Integer,VehicleParking> getVehiclesPark(){
+        HashMap<Integer,VehicleParking> ret = new HashMap<Integer, VehicleParking>();
+        SQLiteDatabase db = io.getReadableDatabase();
+        Cursor cursor = null;
+        if (db!=null) cursor = db.rawQuery("SELECT * FROM "+ ParkingEntry.PARK_TABLE_NAME,null);
+        if(cursor.moveToFirst()){
+            do{
+                Log.e("Vehicles: ","Spot: "+cursor.getInt(0) +
+                        " Matricula: "+cursor.getString(1) + " Data: "+cursor.getString(2));
+                SimpleDateFormat sdf = new SimpleDateFormat("dd-M-yyyy hh:mm:ss");
+                try {
+                    ret.put(cursor.getInt(0),new VehicleParking(cursor.getString(1),sdf.parse(cursor.getString(2))));
+                } catch (ParseException e) {
+                    Log.e("GETTING VEHICLES DB",e.getMessage());
+                }
+            }while(cursor.moveToNext());
+        }
+        return ret;
+    }
+    public void delCar (int spot){
+        SQLiteDatabase db = io.getWritableDatabase();
+        try {
+            db.execSQL("DELETE FROM " + ParkingEntry.PARK_TABLE_NAME + " WHERE " + ParkingEntry.COLUMN_NAME_SPOT + " = " + spot + ";");
+        }
+        catch (Exception e){
+            Log.e("DEL FROM DB",e.getMessage());
+        }
+    }
+    //Log operations
     public void getVehiclesLog(){
         SQLiteDatabase db = io.getReadableDatabase();
         Cursor cursor = null;
-        if (db != null) cursor = db.rawQuery("SELECT * FROM " + LogContract.ParkingEntry.LOG_TABLE_NAME,null);
+        if (db != null) cursor = db.rawQuery("SELECT * FROM " + LogContract.LogEntry.LOG_TABLE_NAME,null);
         if (cursor.moveToFirst()){
             do {
                 Log.e("Vehicles: ","Matricula: "+cursor.getString(1) + " Data: "+cursor.getString(2));

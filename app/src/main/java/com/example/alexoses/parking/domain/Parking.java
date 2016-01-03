@@ -1,8 +1,5 @@
 package com.example.alexoses.parking.domain;
 
-import android.util.Pair;
-
-import java.util.Calendar;
 import java.util.Date;
 import java.util.Vector;
 
@@ -22,17 +19,14 @@ public class Parking {
         for(int i =0; i<totalSpots;++i) vehicleParkings.add(null);
     }
     //0<Spot<totalSpots
-    public void entersVehicle(String numberPlate, Calendar c, int spot) throws Exception {
+    public void entersVehicle(String numberPlate, Date c, int spot) throws Exception {
         if (vehicleParkings.get(spot) == null) {
-            Calendar aux = c.getInstance();
-            Date data = new Date(aux.get(Calendar.YEAR), aux.get(Calendar.MONTH), aux.get(Calendar.DAY_OF_MONTH));
-            Pair<Integer, Integer> p = new Pair<Integer, Integer>(aux.get(Calendar.HOUR), aux.get(Calendar.MINUTE));
-            VehicleParking v = new VehicleParking(numberPlate, data, p);
+            VehicleParking v = new VehicleParking(numberPlate, c);
             vehicleParkings.set(spot, v);
         }
         else throw new Exception("Spot already occupied, try another one");
     }
-    public void leavesVehicle(int spot,Calendar c){
+    public void leavesVehicle(int spot,Date c){
         //TODO create ticket save ticket bla bla bla
         vehicleParkings.set(spot,null);
     }
@@ -47,5 +41,6 @@ public class Parking {
     public Vector<VehicleParking> getSpots(){
         return vehicleParkings;
     }
+
 
 }

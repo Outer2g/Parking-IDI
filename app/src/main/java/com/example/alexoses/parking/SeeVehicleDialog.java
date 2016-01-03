@@ -29,6 +29,12 @@ public class SeeVehicleDialog extends android.support.v4.app.DialogFragment {
         TextView numberPlate = (TextView) rootView.findViewById(R.id.matriculaNumber);
         numberPlate.setText(s);
 
+        // agafem la data
+
+        s = data.getString("date");
+        TextView dataText = (TextView) rootView.findViewById(R.id.dataInfo);
+        dataText.setText(s);
+
         //adding "ok" button
         builder.setNeutralButton("Ok", new DialogInterface.OnClickListener() {
             @Override

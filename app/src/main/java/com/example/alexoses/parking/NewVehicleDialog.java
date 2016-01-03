@@ -30,13 +30,15 @@ public class NewVehicleDialog extends android.support.v4.app.DialogFragment {
         builder.setNeutralButton("Ok", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Intent intent = new Intent();
-                String s = String.valueOf(field.getText());
-                intent.putExtra("mat",s);
-                intent.putExtra("spot",spot);
-                getTargetFragment().onActivityResult(getTargetRequestCode(), Activity.RESULT_OK,intent);
-                dismiss();
-            }
+                    //TODO matricula valida
+                    Intent intent = new Intent();
+                    String s = String.valueOf(field.getText());
+                    intent.putExtra("mat", s);
+                    intent.putExtra("spot", spot);
+                    getTargetFragment().onActivityResult(getTargetRequestCode(), Activity.RESULT_OK, intent);
+                    dismiss();
+                }
+
         });
         // Create the AlertDialog object and return it
         return builder.create();

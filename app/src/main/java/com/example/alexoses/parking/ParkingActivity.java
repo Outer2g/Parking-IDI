@@ -15,9 +15,11 @@ import android.widget.Button;
 
 import com.example.alexoses.parking.Persistencia.CtrlBd;
 import com.example.alexoses.parking.domain.Parking;
+import com.example.alexoses.parking.domain.VehicleParking;
 
-import java.util.Calendar;
-import java.util.GregorianCalendar;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.Vector;
 
 
@@ -49,8 +51,6 @@ public class ParkingActivity extends ActionBarActivity {
         private final int MAT_REQUEST_CODE = 1;
         private final int MAT_FREE_CODE = 2;
         private CtrlBd bd;
-        //TESTING
-        GregorianCalendar c  = new GregorianCalendar(2015,03,28);
         public PlaceholderFragment() {
         }
 
@@ -62,10 +62,10 @@ public class ParkingActivity extends ActionBarActivity {
                         Bundle bundle = data.getExtras();
                         String matricula = bundle.getString("mat");
                         int spot = bundle.getInt("spot");
-                        Calendar c = new GregorianCalendar(2015,3,28);
+                        Date calendar = new Date();
                         try {
-                            parking.entersVehicle(matricula,c,spot);
-                            bd.insertCar(parking.getSpots().get(spot));
+                            parking.entersVehicle(matricula, calendar, spot);
+                            bd.insertCar(new VehicleParking(matricula,calendar),spot);
                         } catch (Exception e) {
                             Log.e("PARKING",e.getMessage());
                         }
@@ -74,17 +74,19 @@ public class ParkingActivity extends ActionBarActivity {
                 case MAT_FREE_CODE:
                     if (resultCode == Activity.RESULT_OK){
                         int spot = data.getExtras().getInt("spot");
+                        bd.delCar(spot);
                         places.get(spot).setBackgroundColor(Color.GREEN);
-                        parking.leavesVehicle(spot,c);
+                        parking.leavesVehicle(spot, new Date());
                     }
             }
         }
         private void showVehicle(int spot){
-            bd.getVehiclesLog();
             SeeVehicleDialog newDialog = new SeeVehicleDialog();
             Bundle  args = new Bundle();
             args.putString("matricula", parking.getSpots().get(spot).getNumberPlate());
-            args.putInt("spot",spot);
+            args.putInt("spot", spot);
+            SimpleDateFormat sdf = new SimpleDateFormat("dd-M-yyyy hh:mm:ss");
+            args.putString("date",sdf.format(parking.getSpots().get(spot).getDataEntrada()));
             newDialog.setArguments(args);
             newDialog.setTargetFragment(mainFragment, MAT_FREE_CODE);
             newDialog.show(getActivity().getSupportFragmentManager(),"Parking");
@@ -140,6 +142,20 @@ public class ParkingActivity extends ActionBarActivity {
             for (int i =0; i < places.size();++i) if (places.get(i) == b) return i;
             return -1;
         }
+        private void syncParking(){
+            HashMap<Integer,VehicleParking> vehicles = bd.getVehiclesPark();
+            for(int i =0;i<places.size();++i){
+                VehicleParking v = vehicles.get(i);
+                if (v!=null){
+                    try {
+                        parking.entersVehicle(v.getNumberPlate(),v.getDataEntrada(),i);
+                    } catch (Exception e) {
+                        Log.e("SYNC",e.getMessage());
+                    }
+                    places.get(i).setBackgroundColor(Color.RED);
+                }
+            }
+        }
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
@@ -147,6 +163,7 @@ public class ParkingActivity extends ActionBarActivity {
             bd = new CtrlBd(getActivity());
             parking = new Parking(TOTAL_SPOTS);
             linkButtons();
+            syncParking();
             return rootView;
         }
     }
