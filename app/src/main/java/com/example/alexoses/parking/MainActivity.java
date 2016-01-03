@@ -8,6 +8,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.alexoses.parking.Persistencia.CtrlBd;
+
 
 public class MainActivity extends ActionBarActivity {
 
@@ -48,6 +50,10 @@ public class MainActivity extends ActionBarActivity {
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
+        }
+        if (id == R.id.action_reset){
+            CtrlBd bd = new CtrlBd(this);
+            bd.reset();
         }
 
         return super.onOptionsItemSelected(item);

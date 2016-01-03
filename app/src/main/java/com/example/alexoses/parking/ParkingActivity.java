@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.example.alexoses.parking.Persistencia.CtrlBd;
 import com.example.alexoses.parking.domain.Parking;
 
 import java.util.Calendar;
@@ -47,6 +48,7 @@ public class ParkingActivity extends ActionBarActivity {
         private final int TOTAL_SPOTS = 14;
         private final int MAT_REQUEST_CODE = 1;
         private final int MAT_FREE_CODE = 2;
+        private CtrlBd bd;
         //TESTING
         GregorianCalendar c  = new GregorianCalendar(2015,03,28);
         public PlaceholderFragment() {
@@ -63,6 +65,7 @@ public class ParkingActivity extends ActionBarActivity {
                         Calendar c = new GregorianCalendar(2015,3,28);
                         try {
                             parking.entersVehicle(matricula,c,spot);
+                            bd.insertCar(parking.getSpots().get(spot));
                         } catch (Exception e) {
                             Log.e("PARKING",e.getMessage());
                         }
@@ -77,6 +80,7 @@ public class ParkingActivity extends ActionBarActivity {
             }
         }
         private void showVehicle(int spot){
+            bd.getVehiclesLog();
             SeeVehicleDialog newDialog = new SeeVehicleDialog();
             Bundle  args = new Bundle();
             args.putString("matricula", parking.getSpots().get(spot).getNumberPlate());
@@ -140,6 +144,7 @@ public class ParkingActivity extends ActionBarActivity {
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
             rootView = inflater.inflate(R.layout.fragment_parking, container, false);
+            bd = new CtrlBd(getActivity());
             parking = new Parking(TOTAL_SPOTS);
             linkButtons();
             return rootView;
