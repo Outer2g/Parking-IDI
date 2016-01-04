@@ -1,4 +1,4 @@
-package com.example.alexoses.parking;
+package com.example.alexoses.parking.Dialogs;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -6,9 +6,15 @@ import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
+
+import com.example.alexoses.parking.R;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * Created by Alex on 21/12/2015.
@@ -30,7 +36,6 @@ public class SeeVehicleDialog extends android.support.v4.app.DialogFragment {
         numberPlate.setText(s);
 
         // agafem la data
-
         s = data.getString("date");
         TextView dataText = (TextView) rootView.findViewById(R.id.dataInfo);
         dataText.setText(s);
@@ -46,7 +51,20 @@ public class SeeVehicleDialog extends android.support.v4.app.DialogFragment {
         builder.setPositiveButton("Lliberar",new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
+                ShowTicketDialog newDialog = new ShowTicketDialog();
+                Bundle  args = new Bundle();
+                args.putString("matricula", data.getString("matricula"));
+                SimpleDateFormat sdf = new SimpleDateFormat("dd-M-yyyy hh:mm:ss");
+                args.putString("dataIn", data.getString("date"));
+                Date d= new Date();
+                args.putString("dataOut", sdf.format(d));
+                newDialog.setArguments(args);
+                newDialog.show(getActivity().getSupportFragmentManager(),"Parking");
+
+                //return
                 Intent intent = new Intent().putExtra("spot",data.getInt("spot"));
+                intent.putExtra("matricula",data.getString("matricula"));
+                intent.putExtra("dataIn",data.getString("date"));
                 getTargetFragment().onActivityResult(getTargetRequestCode(), Activity.RESULT_OK,intent);
                 dismiss();
             }

@@ -13,6 +13,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.example.alexoses.parking.Dialogs.NewVehicleDialog;
+import com.example.alexoses.parking.Dialogs.SeeVehicleDialog;
+import com.example.alexoses.parking.Dialogs.ShowTicketDialog;
 import com.example.alexoses.parking.Persistencia.CtrlBd;
 import com.example.alexoses.parking.domain.Parking;
 import com.example.alexoses.parking.domain.VehicleParking;
@@ -51,6 +54,7 @@ public class ParkingActivity extends ActionBarActivity {
         private final int MAT_REQUEST_CODE = 1;
         private final int MAT_FREE_CODE = 2;
         private CtrlBd bd;
+        Bundle f ;
         public PlaceholderFragment() {
         }
 
@@ -74,6 +78,7 @@ public class ParkingActivity extends ActionBarActivity {
                 case MAT_FREE_CODE:
                     if (resultCode == Activity.RESULT_OK){
                         int spot = data.getExtras().getInt("spot");
+                        f = data.getExtras();
                         bd.delCar(spot);
                         places.get(spot).setBackgroundColor(Color.GREEN);
                         parking.leavesVehicle(spot, new Date());
@@ -86,12 +91,26 @@ public class ParkingActivity extends ActionBarActivity {
             args.putString("matricula", parking.getSpots().get(spot).getNumberPlate());
             args.putInt("spot", spot);
             SimpleDateFormat sdf = new SimpleDateFormat("dd-M-yyyy hh:mm:ss");
-            args.putString("date",sdf.format(parking.getSpots().get(spot).getDataEntrada()));
+            args.putString("date", sdf.format(parking.getSpots().get(spot).getDataEntrada()));
             newDialog.setArguments(args);
             newDialog.setTargetFragment(mainFragment, MAT_FREE_CODE);
             newDialog.show(getActivity().getSupportFragmentManager(),"Parking");
-        }
 
+        }
+        private void showTicket(Bundle data){
+            ShowTicketDialog newDialog = new ShowTicketDialog();
+            Bundle  args = new Bundle();
+            args.putString("matricula", data.getString("matricula"));
+            SimpleDateFormat sdf = new SimpleDateFormat("dd-M-yyyy hh:mm:ss");
+            args.putString("dataIn", data.getString("dataIn"));
+            Date d= new Date();
+            args.putString("dataOut", sdf.format(d));
+            newDialog.setArguments(args);
+            newDialog.setTargetFragment(mainFragment, MAT_REQUEST_CODE);
+            newDialog.show(getActivity().getSupportFragmentManager(),"Parking");
+
+
+        }
         private void enterVehicle(int spot){
             NewVehicleDialog newDialog = new NewVehicleDialog();
             Bundle args = new Bundle();

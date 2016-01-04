@@ -12,8 +12,6 @@ public class Ticket {
     private double cost;
     private Date entryDate;
     private Date leavingDate;
-    private Pair<Integer,Integer> entryTime;
-    private Pair<Integer,Integer> leavingTime;
     //A car can only stay for a day, for the moment
     public Ticket (Pair<Integer,Integer> entryTime,Pair<Integer,Integer> leavingTime){
         //how much for the hours spent
@@ -24,7 +22,5 @@ public class Ticket {
         cost = (minutesLeav-minutesEntry) * pricePerMinute;
     }
     public double getCost(){return cost;}
-    public Pair<Integer,Integer> getEntryTime(){return entryTime;}
-    public Pair<Integer,Integer> getLeavingTime(){return leavingTime;}
     public double getPricePerMinute(){return pricePerMinute;}
 }
