@@ -18,8 +18,8 @@ public class ParkingDb extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL(LogContract.SQL_CREATE_ENTRIES);
         db.execSQL(ParkingContract.SQL_CREATE_ENTRIES);
+        db.execSQL(LogContract.SQL_CREATE_ENTRIES);
     }
 
     @Override

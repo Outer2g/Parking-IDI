@@ -54,7 +54,6 @@ public class ParkingActivity extends ActionBarActivity {
         private final int MAT_REQUEST_CODE = 1;
         private final int MAT_FREE_CODE = 2;
         private CtrlBd bd;
-        Bundle f ;
         public PlaceholderFragment() {
         }
 
@@ -78,12 +77,19 @@ public class ParkingActivity extends ActionBarActivity {
                 case MAT_FREE_CODE:
                     if (resultCode == Activity.RESULT_OK){
                         int spot = data.getExtras().getInt("spot");
-                        f = data.getExtras();
-                        bd.delCar(spot);
+                        Date sortida = new Date();
+                        bd.delCar(spot,sortida,calculaPreu(parking.getSpots().get(spot).getDataEntrada(),sortida));
                         places.get(spot).setBackgroundColor(Color.GREEN);
                         parking.leavesVehicle(spot, new Date());
                     }
             }
+        }
+        private Double calculaPreu(Date entrada,Date sortida){
+            int dies = (sortida.getDay()-entrada.getDay())*24*60;
+            int hores = (sortida.getHours()-entrada.getHours())*60;
+            int mins = sortida.getMinutes()-entrada.getMinutes()+1;
+            double cost = dies+hores+mins;
+            return cost*0.02;
         }
         private void showVehicle(int spot){
             SeeVehicleDialog newDialog = new SeeVehicleDialog();
@@ -108,8 +114,6 @@ public class ParkingActivity extends ActionBarActivity {
             newDialog.setArguments(args);
             newDialog.setTargetFragment(mainFragment, MAT_REQUEST_CODE);
             newDialog.show(getActivity().getSupportFragmentManager(),"Parking");
-
-
         }
         private void enterVehicle(int spot){
             NewVehicleDialog newDialog = new NewVehicleDialog();
