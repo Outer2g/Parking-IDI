@@ -16,7 +16,6 @@ import java.util.HashMap;
 import java.util.List;
 
 import static com.example.alexoses.parking.Persistencia.LogContract.LogEntry;
-import static com.example.alexoses.parking.Persistencia.LogContract.SQL_CREATE_ENTRIES;
 import static com.example.alexoses.parking.Persistencia.ParkingContract.ParkingEntry;
 
 /**
@@ -50,15 +49,12 @@ public class CtrlBd {
         db.insert(ParkingEntry.PARK_TABLE_NAME, null, values);
     }
     public HashMap<Integer,VehicleParking> getVehiclesPark(){
-        Log.e("KE", SQL_CREATE_ENTRIES);
         HashMap<Integer,VehicleParking> ret = new HashMap<Integer, VehicleParking>();
         SQLiteDatabase db = io.getReadableDatabase();
         Cursor cursor = null;
         if (db!=null) cursor = db.rawQuery("SELECT * FROM "+ ParkingEntry.PARK_TABLE_NAME,null);
         if(cursor.moveToFirst()){
             do{
-                Log.e("Vehicles: ","Spot: "+cursor.getInt(0) +
-                        " Matricula: "+cursor.getString(1) + " Data: "+cursor.getString(2));
                 SimpleDateFormat sdf = new SimpleDateFormat("dd-M-yyyy hh:mm:ss");
                 try {
                     ret.put(cursor.getInt(0),new VehicleParking(cursor.getString(1),sdf.parse(cursor.getString(2))));
@@ -76,13 +72,12 @@ public class CtrlBd {
                 ParkingEntry.PARK_TABLE_NAME + " WHERE " + spot + " = " + ParkingEntry.COLUMN_NAME_SPOT,null);
         if(cursor.moveToFirst()){
             do{
-                Log.e("Vehicles: ","ID: "+cursor.getInt(0));
                 SimpleDateFormat sdf = new SimpleDateFormat("dd-M-yyyy hh:mm:ss");
                 String update = "UPDATE "+ LogEntry.LOGE_TABLE_NAME +
                         " SET " + LogEntry.COLUMN_NAME_DATE_OUT + " = " +"\"" +(sdf.format(dataout))+"\" ," + LogEntry.COLUMN_NAME_PREU + "=" + cost +
                         " WHERE " + LogEntry._ID +"=" + cursor.getInt(0);
                 Log.e("UPDATE: ",update);
-                db.rawQuery(update,null);
+                db.execSQL(update);
             }while(cursor.moveToNext());
         }
         try {
@@ -91,6 +86,7 @@ public class CtrlBd {
         catch (Exception e){
             Log.e("DEL FROM DB",e.getMessage());
         }
+        db.close();
     }
     //Log operations
     public List<String> getLog(){
@@ -98,17 +94,37 @@ public class CtrlBd {
         SQLiteDatabase db = io.getReadableDatabase();
         Cursor cursor = null;
         String j ="SELECT * FROM "+ LogEntry.LOGE_TABLE_NAME ;
-        Log.e("KK",j);
         if (db!=null) cursor = db.rawQuery(j,null);
         if(cursor.moveToFirst()){
             do{
-                String aux = "Matricula: "+ cursor.getString(1)+" Dates Entrada/sortida: "+ cursor.getString(2)+" "+cursor.getString(3)+
-                        " pagat: "+cursor.getInt(4);
-                Log.e("YES",aux);
+                String aux = "Matricula: "+ cursor.getString(1)+" Data Entrada: "+ cursor.getString(2)+" Data Sortida: "+cursor.getString(3)+
+                        " pagat: "+cursor.getDouble(4);
                 ret.add(aux);
             }while(cursor.moveToNext());
         }
         return ret;
+    }
+    public double getRecaudacio(Date entrada,Date sortida){
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-M-yyyy hh:mm:ss");
+        Log.e("ARGS : ","data: "+sdf.format(entrada)+" out: "+sdf.format(sortida));
+        double total = 0.0;
+        SQLiteDatabase db = io.getReadableDatabase();
+        Cursor cursor = null;
+        String aux ="SELECT "+LogEntry.COLUMN_NAME_PREU+" FROM "+ LogEntry.LOGE_TABLE_NAME+ " WHERE " +
+                LogEntry.COLUMN_NAME_DATE_IN +" >= \"" + (sdf.format(entrada)) + "\" AND " + LogEntry.COLUMN_NAME_DATE_OUT +" <= \""+
+                (sdf.format(sortida))+"\"";
+        //Log.e("RECAUDACIO OK",aux);
+        if (db!=null) cursor = db.rawQuery(aux,null);
+        if(cursor.moveToFirst()){
+            do{
+                total += cursor.getDouble(0);
+            }while(cursor.moveToNext());
+        }
+        return total;
+    }
+    //Other
+    public Date getDataCreacio(){
+        return io.dataCreacio;
     }
     //debug utils
     public void reset(){

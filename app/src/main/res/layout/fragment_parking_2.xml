@@ -159,31 +159,6 @@
             </LinearLayout>
         </LinearLayout>
 
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="wrap_content"
-            android:layout_height="fill_parent"
-            android:layout_gravity="center_horizontal">
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Entrada"
-                android:id="@+id/entradaButton" />
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Registre"
-                android:id="@+id/registreButton" />
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Ajuda"
-                android:id="@+id/ajudaButton" />
-        </LinearLayout>
-
     </LinearLayout>
 
 </RelativeLayout>
