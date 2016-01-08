@@ -6,12 +6,14 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:id="@id/fila2">
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:id="@id/fila2"
+        android:layout_marginBottom="2dp">
 
         <Button
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="fill_parent"
             android:layout_weight="1"
             android:id="@id/button1"
             android:background="#ff00ff00"
@@ -20,7 +22,7 @@
 
         <Button
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="fill_parent"
             android:layout_weight="1"
             android:id="@id/button2"
             android:background="#ff00ff00"
@@ -28,7 +30,7 @@
 
         <Button
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="fill_parent"
             android:layout_weight="1"
             android:id="@id/button3"
             android:background="#ff00ff00"
@@ -36,7 +38,7 @@
 
         <Button
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="fill_parent"
             android:layout_weight="1"
             android:id="@id/button4"
             android:background="#ff00ff00"
@@ -44,7 +46,7 @@
 
         <Button
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="fill_parent"
             android:layout_weight="1"
             android:id="@id/button5"
             android:background="#ff00ff00"
@@ -52,7 +54,7 @@
 
         <Button
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="fill_parent"
             android:layout_weight="1"
             android:id="@id/button6"
             android:background="#ff00ff00"
@@ -60,7 +62,7 @@
 
         <Button
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="fill_parent"
             android:layout_weight="1"
             android:id="@id/button7"
             android:background="#ff00ff00"
@@ -70,12 +72,13 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
         android:id="@id/fila1" >
 
         <Button
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="fill_parent"
             android:layout_weight="1"
             android:id="@+id/button13"
             android:background="#ff00ff00"
@@ -84,7 +87,7 @@
 
         <Button
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="fill_parent"
             android:layout_weight="1"
             android:id="@+id/button14"
             android:background="#ff00ff00"
@@ -92,7 +95,7 @@
 
         <Button
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="fill_parent"
             android:layout_weight="1"
             android:id="@+id/button15"
             android:background="#ff00ff00"
@@ -100,7 +103,7 @@
 
         <Button
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="fill_parent"
             android:layout_weight="1"
             android:id="@+id/button16"
             android:background="#ff00ff00"
@@ -108,7 +111,7 @@
 
         <Button
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="fill_parent"
             android:layout_weight="1"
             android:id="@+id/button17"
             android:background="#ff00ff00"
@@ -116,7 +119,7 @@
 
         <Button
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="fill_parent"
             android:layout_weight="1"
             android:id="@+id/button18"
             android:background="#ff00ff00"
@@ -124,11 +127,39 @@
 
         <Button
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="fill_parent"
             android:layout_weight="1"
             android:id="@+id/button19"
             android:background="#ff00ff00"
             android:layout_marginLeft="2dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_weight="1"
+        android:layout_height="fill_parent"
+        android:layout_gravity="center"
+        >
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Entrada"
+            android:id="@+id/entradaButton" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Registre"
+            android:id="@+id/registreButton" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ajuda"
+            android:id="@+id/helpButton" />
+
     </LinearLayout>
 
 </LinearLayout>

@@ -54,6 +54,7 @@ public class ParkingActivity extends ActionBarActivity {
         private final int MAT_REQUEST_CODE = 1;
         private final int MAT_FREE_CODE = 2;
         private CtrlBd bd;
+        private int splaca;
         public PlaceholderFragment() {
         }
 
@@ -69,6 +70,7 @@ public class ParkingActivity extends ActionBarActivity {
                         try {
                             parking.entersVehicle(matricula, calendar, spot);
                             bd.insertCar(new VehicleParking(matricula,calendar),spot);
+                            places.get(spot).setBackgroundColor(Color.RED);
                         } catch (Exception e) {
                             Log.e("PARKING",e.getMessage());
                         }
@@ -81,6 +83,7 @@ public class ParkingActivity extends ActionBarActivity {
                         bd.delCar(spot,sortida,calculaPreu(parking.getSpots().get(spot).getDataEntrada(),sortida));
                         places.get(spot).setBackgroundColor(Color.GREEN);
                         parking.leavesVehicle(spot, new Date());
+                        splaca = spot;
                     }
             }
         }
@@ -187,6 +190,33 @@ public class ParkingActivity extends ActionBarActivity {
             parking = new Parking(TOTAL_SPOTS);
             linkButtons();
             syncParking();
+            splaca = 0;
+            Button entrada = (Button) rootView.findViewById(R.id.entradaButton);
+            entrada.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    boolean b = true;
+                    while (b){
+                        if (parking.getSpots().get(splaca) != null) ++splaca;
+                        else {
+                            enterVehicle(splaca);
+                            b = false;
+                        }
+                        if (splaca>= TOTAL_SPOTS){
+                            //TODO error message
+                            b = false;
+                        }
+                    }
+                }
+            });
+            Button registre = (Button) rootView.findViewById(R.id.registreButton);
+            registre.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(getActivity(),RegistreActivity.class);
+                    startActivity(intent);
+                }
+            });
             return rootView;
         }
     }

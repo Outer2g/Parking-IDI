@@ -10,12 +10,13 @@
 
     <LinearLayout
         android:orientation="vertical"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_weight="1"
         android:id="@+id/fila1">
 
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:id="@+id/button1"
@@ -26,7 +27,7 @@
             android:nestedScrollingEnabled="false" />
 
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:id="@+id/button2"
@@ -35,7 +36,7 @@
             android:layout_margin="2dp" />
 
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:id="@+id/button3"
@@ -44,7 +45,7 @@
             android:layout_margin="2dp" />
 
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:id="@+id/button4"
@@ -53,7 +54,7 @@
             android:layout_margin="2dp" />
 
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:id="@+id/button5"
@@ -62,7 +63,7 @@
             android:layout_margin="2dp" />
 
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:id="@+id/button6"
@@ -71,7 +72,7 @@
             android:layout_margin="2dp" />
 
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:id="@+id/button7"
@@ -82,12 +83,13 @@
 
     <LinearLayout
         android:orientation="vertical"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_weight="1"
         android:id="@+id/fila2">
 
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:id="@+id/button13"
@@ -97,7 +99,7 @@
             android:layout_margin="2dp" />
 
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:id="@+id/button14"
@@ -106,7 +108,7 @@
             android:layout_margin="2dp" />
 
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:id="@+id/button15"
@@ -115,7 +117,7 @@
             android:layout_margin="2dp" />
 
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:id="@+id/button16"
@@ -124,7 +126,7 @@
             android:layout_margin="2dp" />
 
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:id="@+id/button17"
@@ -133,7 +135,7 @@
             android:layout_margin="2dp" />
 
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:id="@+id/button18"
@@ -142,7 +144,7 @@
             android:layout_margin="2dp" />
 
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:id="@+id/button19"

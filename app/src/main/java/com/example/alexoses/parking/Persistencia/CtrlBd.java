@@ -10,8 +10,10 @@ import com.example.alexoses.parking.domain.VehicleParking;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 
 import static com.example.alexoses.parking.Persistencia.LogContract.LogEntry;
 import static com.example.alexoses.parking.Persistencia.LogContract.SQL_CREATE_ENTRIES;
@@ -79,6 +81,7 @@ public class CtrlBd {
                 String update = "UPDATE "+ LogEntry.LOGE_TABLE_NAME +
                         " SET " + LogEntry.COLUMN_NAME_DATE_OUT + " = " +"\"" +(sdf.format(dataout))+"\" ," + LogEntry.COLUMN_NAME_PREU + "=" + cost +
                         " WHERE " + LogEntry._ID +"=" + cursor.getInt(0);
+                Log.e("UPDATE: ",update);
                 db.rawQuery(update,null);
             }while(cursor.moveToNext());
         }
@@ -90,6 +93,23 @@ public class CtrlBd {
         }
     }
     //Log operations
+    public List<String> getLog(){
+        ArrayList<String> ret = new ArrayList();
+        SQLiteDatabase db = io.getReadableDatabase();
+        Cursor cursor = null;
+        String j ="SELECT * FROM "+ LogEntry.LOGE_TABLE_NAME ;
+        Log.e("KK",j);
+        if (db!=null) cursor = db.rawQuery(j,null);
+        if(cursor.moveToFirst()){
+            do{
+                String aux = "Matricula: "+ cursor.getString(1)+" Dates Entrada/sortida: "+ cursor.getString(2)+" "+cursor.getString(3)+
+                        " pagat: "+cursor.getInt(4);
+                Log.e("YES",aux);
+                ret.add(aux);
+            }while(cursor.moveToNext());
+        }
+        return ret;
+    }
     //debug utils
     public void reset(){
         SQLiteDatabase db = io.getWritableDatabase();
