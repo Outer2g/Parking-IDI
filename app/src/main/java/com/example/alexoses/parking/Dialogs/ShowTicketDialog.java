@@ -39,7 +39,7 @@ public class ShowTicketDialog extends android.support.v4.app.DialogFragment {
         numberPlate.setText(matricula);
         dataIn.setText(args.getString("dataIn"));
         dataOut.setText(args.getString("dataOut"));
-        SimpleDateFormat sdf = new SimpleDateFormat("dd-M-yyyy hh:mm:ss");
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
         try {
             Date entrada = sdf.parse(args.getString("dataIn"));
             Date sortida = sdf.parse(args.getString("dataOut"));

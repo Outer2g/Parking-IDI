@@ -38,7 +38,7 @@ public class ParkingActivity extends ActionBarActivity {
                     .add(R.id.container, new PlaceholderFragment())
                     .commit();
         }
-
+        getSupportActionBar().hide();
     }
 
 
@@ -54,6 +54,9 @@ public class ParkingActivity extends ActionBarActivity {
         private final int TOTAL_SPOTS = 14;
         private final int MAT_REQUEST_CODE = 1;
         private final int MAT_FREE_CODE = 2;
+        private final int verd = Color.parseColor("#ff00dd45");
+        private final int vermell = Color.parseColor("#ffd40005");
+
         private CtrlBd bd;
         private int splaca;
         public PlaceholderFragment() {
@@ -71,7 +74,7 @@ public class ParkingActivity extends ActionBarActivity {
                         try {
                             parking.entersVehicle(matricula, calendar, spot);
                             bd.insertCar(new VehicleParking(matricula,calendar),spot);
-                            places.get(spot).setBackgroundColor(Color.RED);
+                            places.get(spot).setBackgroundColor(vermell);
                         } catch (Exception e) {
                             Log.e("PARKING",e.getMessage());
                         }
@@ -80,13 +83,13 @@ public class ParkingActivity extends ActionBarActivity {
                 case MAT_FREE_CODE:
                     if (resultCode == Activity.RESULT_OK){
                         int spot = data.getExtras().getInt("spot");
-                        SimpleDateFormat sdf = new SimpleDateFormat("dd-M-yyyy hh:mm:ss");
+                        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
                         Date sortida = new Date();
                         Bundle args = new Bundle();
                         args.putString("dataIn",sdf.format(parking.getSpots().get(spot).getDataEntrada()));
                         args.putString("dataOut",sdf.format(sortida));
                         bd.delCar(spot,sortida,calculaPreu(args),data.getExtras().getString("matricula"));
-                        places.get(spot).setBackgroundColor(Color.GREEN);
+                        places.get(spot).setBackgroundColor(verd);
                         parking.leavesVehicle(spot, new Date());
                         splaca = spot;
                     }
@@ -94,7 +97,7 @@ public class ParkingActivity extends ActionBarActivity {
         }
 
         private Double calculaPreu(Bundle args){
-            SimpleDateFormat sdf = new SimpleDateFormat("dd-M-yyyy hh:mm:ss");
+            SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
             try {
                 Date entrada = sdf.parse(args.getString("dataIn"));
                 Date sortida = sdf.parse(args.getString("dataOut"));
@@ -103,7 +106,7 @@ public class ParkingActivity extends ActionBarActivity {
                 int mins = sortida.getMinutes()-entrada.getMinutes()+1;
                 Log.e("ZZ","dies: "+dies+" hores: "+hores+" mins: "+mins+"  sortida: "+sortida.getHours()+" entrada: "+entrada.getHours());;
                 double costt = dies+hores+mins;
-                return costt*0.02;
+                return costt*2/100;
             } catch (ParseException e) {
                 Log.e("Show Ticket",e.getMessage());
             }
@@ -114,7 +117,7 @@ public class ParkingActivity extends ActionBarActivity {
             Bundle  args = new Bundle();
             args.putString("matricula", parking.getSpots().get(spot).getNumberPlate());
             args.putInt("spot", spot);
-            SimpleDateFormat sdf = new SimpleDateFormat("dd-M-yyyy hh:mm:ss");
+            SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
             args.putString("date", sdf.format(parking.getSpots().get(spot).getDataEntrada()));
             newDialog.setArguments(args);
             newDialog.setTargetFragment(mainFragment, MAT_FREE_CODE);
@@ -125,7 +128,7 @@ public class ParkingActivity extends ActionBarActivity {
             ShowTicketDialog newDialog = new ShowTicketDialog();
             Bundle  args = new Bundle();
             args.putString("matricula", data.getString("matricula"));
-            SimpleDateFormat sdf = new SimpleDateFormat("dd-M-yyyy hh:mm:ss");
+            SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
             args.putString("dataIn", data.getString("dataIn"));
             Date d= new Date();
             args.putString("dataOut", sdf.format(d));
@@ -164,14 +167,16 @@ public class ParkingActivity extends ActionBarActivity {
                     public void onClick(View v) {
                         ColorDrawable color = (ColorDrawable) v.getBackground();
                         int spot = getPlacaCode(v);
-                        switch (color.getColor()){
-                            case Color.RED:
-                                showVehicle(spot);
-                                break;
-                            case Color.GREEN:
-                                enterVehicle(spot);
-                                v.setBackgroundColor(Color.RED);
-                                break;
+                        int colorInt = verd;
+
+                        int i1 = color.getColor();
+                        if (i1 == vermell) {
+                            showVehicle(spot);
+
+                        } else if (i1 == colorInt) {
+                            enterVehicle(spot);
+                            v.setBackgroundColor(vermell);
+
                         }
                     }
                 });
@@ -193,7 +198,7 @@ public class ParkingActivity extends ActionBarActivity {
                     } catch (Exception e) {
                         Log.e("SYNC",e.getMessage());
                     }
-                    places.get(i).setBackgroundColor(Color.RED);
+                    places.get(i).setBackgroundColor(vermell);
                 }
             }
         }

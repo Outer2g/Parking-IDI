@@ -6,7 +6,6 @@ import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
@@ -54,7 +53,7 @@ public class SeeVehicleDialog extends android.support.v4.app.DialogFragment {
                 ShowTicketDialog newDialog = new ShowTicketDialog();
                 Bundle  args = new Bundle();
                 args.putString("matricula", data.getString("matricula"));
-                SimpleDateFormat sdf = new SimpleDateFormat("dd-M-yyyy hh:mm:ss");
+                SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
                 args.putString("dataIn", data.getString("date"));
                 Date d= new Date();
                 args.putString("dataOut", sdf.format(d));

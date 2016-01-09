@@ -5,11 +5,11 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="fill_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <LinearLayout
             android:orientation="horizontal"
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content">
 
             <TextView
@@ -18,40 +18,26 @@
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="data In: " />
 
-            <EditText
-                android:layout_width="wrap_content"
+            <TextView
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:inputType="number"
-                android:ems="10"
-                android:hint="DD"
-                android:id="@+id/dataInDiaText"
-                android:maxLength="2"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Data no seleccionada"
+                android:id="@+id/dataInText"
                 android:layout_weight="1" />
 
-            <EditText
-                android:layout_width="wrap_content"
+            <Button
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:inputType="number"
-                android:ems="10"
-                android:id="@+id/dataInMesText"
-                android:layout_weight="1"
-                android:maxLength="1" />
-
-            <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:inputType="number"
-                android:ems="10"
-                android:id="@+id/dataInYearText"
-                android:maxLength="4"
-                android:hint="YYYY"
+                android:text="Seleccionar"
+                android:id="@+id/selDataInButton"
                 android:layout_weight="1" />
 
         </LinearLayout>
 
         <LinearLayout
             android:orientation="horizontal"
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content">
 
             <TextView
@@ -60,30 +46,26 @@
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="Hora In: " />
 
-            <EditText
-                android:layout_width="wrap_content"
+            <TextView
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:inputType="time"
-                android:ems="10"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Hora no seleccionada"
                 android:id="@+id/horaInText"
-                android:layout_weight="1"
-                android:maxLength="2"
-                android:hint="HH" />
+                android:layout_weight="1" />
 
-            <EditText
-                android:layout_width="wrap_content"
+            <Button
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:inputType="number"
-                android:ems="10"
-                android:id="@+id/minInText"
-                android:layout_weight="1"
-                android:hint="MM"
-                android:maxLength="2" />
+                android:text="Seleccionar"
+                android:id="@+id/horaInButton"
+                android:layout_weight="1" />
+
         </LinearLayout>
 
         <LinearLayout
             android:orientation="horizontal"
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content" >
 
             <TextView
@@ -92,41 +74,26 @@
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="data Out: " />
 
-            <EditText
-                android:layout_width="wrap_content"
+            <TextView
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:inputType="number"
-                android:ems="10"
-                android:id="@+id/dataOutDiaText"
-                android:maxLength="2"
-                android:hint="DD"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Data no seleccionada"
+                android:id="@+id/dataOutText"
                 android:layout_weight="1" />
 
-            <EditText
-                android:layout_width="wrap_content"
+            <Button
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:inputType="number"
-                android:ems="10"
-                android:id="@+id/dataOutMesText"
-                android:layout_weight="1"
-                android:maxLength="1"
-                android:hint="M" />
-
-            <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:inputType="number"
-                android:ems="10"
-                android:id="@+id/dataOutYearText"
-                android:maxLength="4"
-                android:hint="YYYY"
+                android:text="Seleccionar"
+                android:id="@+id/selDataOutButton"
                 android:layout_weight="1" />
 
         </LinearLayout>
 
         <LinearLayout
             android:orientation="horizontal"
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content" >
 
             <TextView
@@ -135,26 +102,42 @@
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="Hora Out: " />
 
-            <EditText
-                android:layout_width="wrap_content"
+            <TextView
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:inputType="time"
-                android:ems="10"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Hora no seleccionada"
                 android:id="@+id/horaOutText"
-                android:layout_weight="1"
-                android:maxLength="2"
-                android:hint="HH" />
+                android:layout_weight="1" />
 
-            <EditText
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Seleccionar"
+                android:id="@+id/horaOutButton"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_gravity="center_horizontal">
+
+            <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="number"
-                android:ems="10"
-                android:id="@+id/minOutText"
-                android:layout_weight="1"
-                android:hint="MM"
-                android:maxLength="2" />
+                android:text="All Time"
+                android:id="@+id/allTimeButton"
+                android:layout_gravity="center_horizontal" />
 
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Today"
+                android:id="@+id/todayButton"
+                android:layout_gravity="center_horizontal" />
         </LinearLayout>
 
     </LinearLayout>

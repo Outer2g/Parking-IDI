@@ -99,7 +99,7 @@ public class CtrlBd {
         if (db!=null) cursor = db.rawQuery(j,null);
         if(cursor.moveToFirst()){
             do{
-                String aux = "Matricula: "+ cursor.getString(1)+" Data Entrada: "+ cursor.getString(2);
+                String aux = "Matricula: "+ cursor.getString(1)+" Data: "+ cursor.getString(2);
                 if (cursor.getString(3).compareTo("S")==0) aux="Sortida: "+ aux +" pagat: "+cursor.getDouble(4);
                 else aux = "Entrada: " + aux;
                 ret.add(aux);
