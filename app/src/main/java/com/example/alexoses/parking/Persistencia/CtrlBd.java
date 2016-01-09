@@ -89,11 +89,16 @@ public class CtrlBd {
         db.close();
     }
     //Log operations
-    public List<String> getLog(){
+    public List<String> getLog(Date inici, Date fi){
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-M-yyyy hh:mm:ss");
+        String dataIn = sdf.format(inici);
+        String dataOut = sdf.format(fi);
         ArrayList<String> ret = new ArrayList();
         SQLiteDatabase db = io.getReadableDatabase();
         Cursor cursor = null;
-        String j ="SELECT * FROM "+ LogEntry.LOGE_TABLE_NAME ;
+        String j ="SELECT * FROM "+ LogEntry.LOGE_TABLE_NAME + " WHERE "+
+                LogEntry.COLUMN_NAME_DATE_IN +" >= \"" + dataIn + "\" AND " + LogEntry.COLUMN_NAME_DATE_OUT +" <= \""+
+                dataOut+"\""  ;
         if (db!=null) cursor = db.rawQuery(j,null);
         if(cursor.moveToFirst()){
             do{

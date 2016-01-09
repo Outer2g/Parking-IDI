@@ -46,6 +46,7 @@ public class ShowTicketDialog extends android.support.v4.app.DialogFragment {
             int dies = (sortida.getDay()-entrada.getDay())*24*60;
             int hores = (sortida.getHours()-entrada.getHours())*60;
             int mins = sortida.getMinutes()-entrada.getMinutes()+1;
+            Log.e("ZZ","dies: "+dies+" hores: "+hores+" mins: "+mins+"  sortida: "+sortida.getHours()+" entrada: "+entrada.getHours());;
             double costt = dies+hores+mins;
             cost.setText(String.valueOf(costt*0.02));
         } catch (ParseException e) {

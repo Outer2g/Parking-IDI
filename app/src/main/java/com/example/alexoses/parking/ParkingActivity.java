@@ -20,6 +20,7 @@ import com.example.alexoses.parking.Persistencia.CtrlBd;
 import com.example.alexoses.parking.domain.Parking;
 import com.example.alexoses.parking.domain.VehicleParking;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
@@ -79,20 +80,34 @@ public class ParkingActivity extends ActionBarActivity {
                 case MAT_FREE_CODE:
                     if (resultCode == Activity.RESULT_OK){
                         int spot = data.getExtras().getInt("spot");
+                        SimpleDateFormat sdf = new SimpleDateFormat("dd-M-yyyy hh:mm:ss");
                         Date sortida = new Date();
-                        bd.delCar(spot,sortida,calculaPreu(parking.getSpots().get(spot).getDataEntrada(),sortida));
+                        Bundle args = new Bundle();
+                        args.putString("dataIn",sdf.format(parking.getSpots().get(spot).getDataEntrada()));
+                        args.putString("dataOut",sdf.format(sortida));
+                        bd.delCar(spot,sortida,calculaPreu(args));
                         places.get(spot).setBackgroundColor(Color.GREEN);
                         parking.leavesVehicle(spot, new Date());
                         splaca = spot;
                     }
             }
         }
-        private Double calculaPreu(Date entrada,Date sortida){
-            int dies = (sortida.getDay()-entrada.getDay())*24*60;
-            int hores = (sortida.getHours()-entrada.getHours())*60;
-            int mins = sortida.getMinutes()-entrada.getMinutes()+1;
-            double cost = dies+hores+mins;
-            return cost*0.02;
+
+        private Double calculaPreu(Bundle args){
+            SimpleDateFormat sdf = new SimpleDateFormat("dd-M-yyyy hh:mm:ss");
+            try {
+                Date entrada = sdf.parse(args.getString("dataIn"));
+                Date sortida = sdf.parse(args.getString("dataOut"));
+                int dies = (sortida.getDay()-entrada.getDay())*24*60;
+                int hores = (sortida.getHours()-entrada.getHours())*60;
+                int mins = sortida.getMinutes()-entrada.getMinutes()+1;
+                Log.e("ZZ","dies: "+dies+" hores: "+hores+" mins: "+mins+"  sortida: "+sortida.getHours()+" entrada: "+entrada.getHours());;
+                double costt = dies+hores+mins;
+                return costt*0.02;
+            } catch (ParseException e) {
+                Log.e("Show Ticket",e.getMessage());
+            }
+            return -1.0;
         }
         private void showVehicle(int spot){
             SeeVehicleDialog newDialog = new SeeVehicleDialog();

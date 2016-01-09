@@ -1,5 +1,7 @@
 package com.example.alexoses.parking;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBarActivity;
@@ -13,9 +15,12 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 
+import com.example.alexoses.parking.Dialogs.PickDateDialog;
 import com.example.alexoses.parking.Dialogs.ShowRecaudacioDialog;
 import com.example.alexoses.parking.Persistencia.CtrlBd;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -65,6 +70,8 @@ public class RegistreActivity extends ActionBarActivity {
         private ArrayAdapter<String> mAdapter;
         private List<String> data;
         Date dataInicial,dataFinal;
+        private final int PICK_DATA_CODE =1;
+        private final Fragment mainFragment = this;
 
         public PlaceholderFragment() {
         }
@@ -77,12 +84,78 @@ public class RegistreActivity extends ActionBarActivity {
             newDialog.setArguments(args);
             newDialog.show(getActivity().getSupportFragmentManager(),"Parking");
         }
+
+        @Override
+        public void onActivityResult(int requestCode, int resultCode, Intent data) {
+            switch (requestCode) {
+                case PICK_DATA_CODE:
+                    if (resultCode == Activity.RESULT_OK) {
+                        SimpleDateFormat sdf = new SimpleDateFormat("dd-M-yyyy hh:mm:ss");
+                        Bundle args = data.getExtras();
+                        try {
+                            dataInicial = sdf.parse(args.getString("dataIn"));
+                            dataFinal = sdf.parse(args.getString("dataOut"));
+                            mAdapter = new ArrayAdapter<String>(getActivity(),R.layout.list,R.id.list,bd.getLog(dataInicial,dataFinal));
+                            mAdapter.notifyDataSetChanged();
+                            ListView listView = (ListView) rootView.findViewById(R.id.listView);
+                            listView.setAdapter(mAdapter);
+                        } catch (Exception e) {
+                            Log.e("NO AGAFO RE","SAD");
+                        }
+                    }
+                    break;
+            }
+        }
+
         private void linkButtons(){
             Button recaudacio = (Button) rootView.findViewById(R.id.recaudacioButton);
             recaudacio.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     showRecaudacio();
+                }
+            });
+            Button ara = (Button) rootView.findViewById(R.id.totalButton);
+            ara.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    dataInicial = bd.getDataCreacio();
+                    dataFinal = new Date();
+                    mAdapter = new ArrayAdapter<String>(getActivity(),R.layout.list,R.id.list,bd.getLog(dataInicial,dataFinal));
+
+                    mAdapter.notifyDataSetChanged();
+                    ListView listView = (ListView) rootView.findViewById(R.id.listView);
+                    listView.setAdapter(mAdapter);
+                }
+            });
+            Button select = (Button) rootView.findViewById(R.id.selectButton);
+            select.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    PickDateDialog newDialog = new PickDateDialog();
+                    newDialog.setTargetFragment(mainFragment, PICK_DATA_CODE);
+                    newDialog.show(getActivity().getSupportFragmentManager(),"Parking");
+                }
+            });
+            Button today = (Button) rootView.findViewById(R.id.todayButton);
+            today.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Date aux = new Date();
+                    SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+                    String newDate = sdf.format(aux) + " 00:00:00";
+                    dataFinal = aux;
+                    SimpleDateFormat sdf2=new SimpleDateFormat("dd-MM-yyyy hh:mm:ss");
+                    try {
+                        dataInicial = sdf2.parse(newDate);
+                    } catch (ParseException e) {
+                        Log.e("NO NEW","NO NEW");
+                    }
+                    mAdapter = new ArrayAdapter<String>(getActivity(),R.layout.list,R.id.list,bd.getLog(dataInicial,dataFinal));
+
+                    mAdapter.notifyDataSetChanged();
+                    ListView listView = (ListView) rootView.findViewById(R.id.listView);
+                    listView.setAdapter(mAdapter);
                 }
             });
         }
@@ -92,9 +165,9 @@ public class RegistreActivity extends ActionBarActivity {
             bd = new CtrlBd(getActivity());
             dataInicial = bd.getDataCreacio();
             dataFinal = new Date();
-            data = bd.getLog();
+            data = bd.getLog(dataInicial,dataFinal);
             rootView = inflater.inflate(R.layout.fragment_registre, container, false);
-            mAdapter = new ArrayAdapter<String>(getActivity(),R.layout.list,R.id.list,bd.getLog());
+            mAdapter = new ArrayAdapter<String>(getActivity(),R.layout.list,R.id.list,bd.getLog(dataInicial,dataFinal));
             ListView listView = (ListView) rootView.findViewById(R.id.listView);
             listView.setAdapter(mAdapter);
             linkButtons();
