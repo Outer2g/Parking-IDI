@@ -20,9 +20,9 @@ public class ParkingDb extends SQLiteOpenHelper {
 
     public ParkingDb(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
-        SimpleDateFormat sdf = new SimpleDateFormat("dd-M-yyyy hh:mm:ss");
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
         try {
-            dataCreacio = sdf.parse("01-1-2000 00:00:00");
+            dataCreacio = sdf.parse("01-01-2000 00:00:00");
         } catch (ParseException e) {
             Log.e("kk",e.getMessage());
         }

@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.example.alexoses.parking.Dialogs.PickDateDialog;
 import com.example.alexoses.parking.Dialogs.ShowRecaudacioDialog;
@@ -141,11 +142,11 @@ public class RegistreActivity extends ActionBarActivity {
             today.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    SimpleDateFormat sdf2=new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
                     Date aux = new Date();
                     SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
                     String newDate = sdf.format(aux) + " 00:00:00";
                     dataFinal = aux;
-                    SimpleDateFormat sdf2=new SimpleDateFormat("dd-MM-yyyy hh:mm:ss");
                     try {
                         dataInicial = sdf2.parse(newDate);
                     } catch (ParseException e) {
@@ -159,6 +160,12 @@ public class RegistreActivity extends ActionBarActivity {
                 }
             });
         }
+        private void updateInfo(){
+            TextView info = (TextView) rootView.findViewById(R.id.infoLogText);
+            SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+            info.setText("Registre desde la data: "+sdf.format(dataInicial)+" fins a: "+sdf.format(dataFinal) + " recaudacio: "+bd.getRecaudacio(dataInicial,dataFinal));
+
+        }
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
@@ -168,9 +175,11 @@ public class RegistreActivity extends ActionBarActivity {
             data = bd.getLog(dataInicial,dataFinal);
             rootView = inflater.inflate(R.layout.fragment_registre, container, false);
             mAdapter = new ArrayAdapter<String>(getActivity(),R.layout.list,R.id.list,bd.getLog(dataInicial,dataFinal));
+            updateInfo();
             ListView listView = (ListView) rootView.findViewById(R.id.listView);
             listView.setAdapter(mAdapter);
             linkButtons();
+
             return rootView;
         }
     }

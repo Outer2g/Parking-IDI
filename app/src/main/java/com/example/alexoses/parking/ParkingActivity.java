@@ -85,7 +85,7 @@ public class ParkingActivity extends ActionBarActivity {
                         Bundle args = new Bundle();
                         args.putString("dataIn",sdf.format(parking.getSpots().get(spot).getDataEntrada()));
                         args.putString("dataOut",sdf.format(sortida));
-                        bd.delCar(spot,sortida,calculaPreu(args));
+                        bd.delCar(spot,sortida,calculaPreu(args),data.getExtras().getString("matricula"));
                         places.get(spot).setBackgroundColor(Color.GREEN);
                         parking.leavesVehicle(spot, new Date());
                         splaca = spot;
