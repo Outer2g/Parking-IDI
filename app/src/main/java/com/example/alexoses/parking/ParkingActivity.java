@@ -9,10 +9,14 @@ import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
+import com.example.alexoses.parking.Dialogs.AjudaDialog;
 import com.example.alexoses.parking.Dialogs.NewVehicleDialog;
 import com.example.alexoses.parking.Dialogs.SeeVehicleDialog;
 import com.example.alexoses.parking.Dialogs.ShowTicketDialog;
@@ -38,9 +42,33 @@ public class ParkingActivity extends ActionBarActivity {
                     .add(R.id.container, new PlaceholderFragment())
                     .commit();
         }
-        getSupportActionBar().hide();
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#006064")));
+        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+
     }
 
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+        if (id == R.id.action_reset){
+            CtrlBd bd = new CtrlBd(this);
+            bd.reset();
+            getSupportFragmentManager().beginTransaction()
+                    .add(R.id.container, new PlaceholderFragment())
+                    .commit();
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
     /**
      * A placeholder fragment containing a simple view.
@@ -175,7 +203,6 @@ public class ParkingActivity extends ActionBarActivity {
 
                         } else if (i1 == colorInt) {
                             enterVehicle(spot);
-                            v.setBackgroundColor(vermell);
 
                         }
                     }
@@ -223,7 +250,7 @@ public class ParkingActivity extends ActionBarActivity {
                             b = false;
                         }
                         if (splaca>= TOTAL_SPOTS){
-                            //TODO error message
+                            Toast.makeText(getActivity(),"Parking ple",Toast.LENGTH_SHORT);
                             b = false;
                         }
                     }
@@ -237,6 +264,15 @@ public class ParkingActivity extends ActionBarActivity {
                     startActivity(intent);
                 }
             });
+            Button aj = (Button) rootView.findViewById(R.id.helpButton);
+            aj.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    AjudaDialog newDialog = new AjudaDialog();
+                    newDialog.show(getActivity().getSupportFragmentManager(),"Ajuda");
+                }
+            });
+
             return rootView;
         }
     }

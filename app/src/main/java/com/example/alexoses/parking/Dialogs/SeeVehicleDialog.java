@@ -47,7 +47,7 @@ public class SeeVehicleDialog extends android.support.v4.app.DialogFragment {
             }
         });
         // adding "Lliberar" button which will cause to free the spot
-        builder.setPositiveButton("Lliberar",new DialogInterface.OnClickListener() {
+        builder.setPositiveButton("Sortida",new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 ShowTicketDialog newDialog = new ShowTicketDialog();

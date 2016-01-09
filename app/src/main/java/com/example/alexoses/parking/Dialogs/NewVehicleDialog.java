@@ -42,6 +42,13 @@ public class NewVehicleDialog extends android.support.v4.app.DialogFragment {
                 }
 
         });
+        builder.setNegativeButton("cancelar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                getTargetFragment().onActivityResult(getTargetRequestCode(), Activity.RESULT_CANCELED, new Intent());
+                dismiss();
+            }
+        });
         // Create the AlertDialog object and return it
         return builder.create();
     }

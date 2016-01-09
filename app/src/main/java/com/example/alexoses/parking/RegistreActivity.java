@@ -20,6 +20,7 @@ import com.example.alexoses.parking.Dialogs.PickDateDialog;
 import com.example.alexoses.parking.Dialogs.ShowRecaudacioDialog;
 import com.example.alexoses.parking.Persistencia.CtrlBd;
 
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -120,7 +121,9 @@ public class RegistreActivity extends ActionBarActivity {
         private void updateInfo(){
             TextView info = (TextView) rootView.findViewById(R.id.infoLogText);
             SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
-            info.setText("Registre desde la data: "+sdf.format(dataInicial)+" fins a: "+sdf.format(dataFinal) + " recaudacio:"+bd.getRecaudacio(dataInicial,dataFinal));
+            double recaudacio =bd.getRecaudacio(dataInicial,dataFinal);
+            info.setText("Registre desde la data: "+sdf.format(dataInicial)+" fins a: "+sdf.format(dataFinal) +
+                    " recaudacio: "+new DecimalFormat("##.##").format(recaudacio));
 
         }
         @Override

@@ -123,6 +123,7 @@ public class CtrlBd {
                 total += cursor.getDouble(0);
             }while(cursor.moveToNext());
         }
+
         return total;
     }
     //Other
